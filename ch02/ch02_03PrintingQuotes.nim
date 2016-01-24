@@ -1,6 +1,6 @@
 import ch02_utils
 
-const DOUBLEQUOTES = "\""
+const DOUBLEQUOTES = chr(34)
 
 var quote = prompt("What is the quote? ")
 var who = prompt("Who said it? ")
