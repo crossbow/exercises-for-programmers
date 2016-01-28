@@ -7,7 +7,7 @@ proc prompt*(msg: string = ">>> "): string =
 proc promptString*(msg: string = ">>> "): string =
   write(stdout, msg)
   result = readLine(stdin)
-  while result.isSpace() or result.len() <= 0 :
+  while result.isSpace() or result == "" :
     echo ""
     write(stdout, msg)
     result = readLine(stdin)
@@ -17,7 +17,7 @@ proc promptInt*(msg: string = ">>> "): int =
   ## Not float
   write(stdout, msg)
   var res = readLine(stdin)
-  while not res.isDigit():
+  while not res.isDigit() :
     echo ""
     write(stdout, msg)
     res = readLine(stdin)
