@@ -31,7 +31,6 @@ proc isFloat(n: string): bool =
     result = false
 
 proc promptFloat*(msg: string = ">>> "): float =
-  ## Not negative
   write(stdout, msg)
   var res = readLine(stdin)
   while not res.isFloat():
