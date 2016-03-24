@@ -19,7 +19,7 @@ import strutils
 import ch03_utils as utils
 
 ## Constant
-const gallonPerSquareFeet = 350
+const RATE = 350
 
 ## Input
 var length = promptFloat("What is the length of the room in feet? ")
@@ -28,11 +28,11 @@ var width = promptFloat("What is the width of the room in feet? ")
 ## Processing
 var paint = 1
 var area = length * width
-var modulo = area.toInt() mod gallonPerSquareFeet
+var modulo = area.toInt() mod RATE
 if modulo == 0:
-  paint = area.toInt() div gallonPerSquareFeet
+  paint = area.toInt() div RATE
 else:
-  paint = paint + (area.toInt() div gallonPerSquareFeet)
+  paint = paint + (area.toInt() div RATE)
 
 ## Output
 echo "You will need to purchase $1 gallons of paint to cover $2 square feet" % [$paint, $area]
