@@ -31,6 +31,7 @@ http://www.x-rates.com/calculator/?from=EUR&to=USD&amount=1
 ]##
 
 import strutils
+import strfmt
 import ch03_utils as utils
 
 ## Input
@@ -42,4 +43,5 @@ var amountTo = amountFrom * rateFrom
 
 ## Output
 echo " "
-echo "$1 euros at an exchange rate of $2 are $3 U.S. dollars." % [$amountFrom, $rateFrom, $amountTo]
+#echo "$1 euros at an exchange rate of $2 are $3 U.S. dollars." % [$amountFrom, $rateFrom, $amountTo]
+printfmt("{:.2f} euros at an exchange rate of {:.5f} are {:.2f} U.S. dollars.\n", amountFrom, rateFrom, amountTo)
