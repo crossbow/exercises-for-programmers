@@ -17,11 +17,28 @@ proc promptInt*(msg: string = ">>> "): int =
   ## Not float
   write(stdout, msg)
   var res = readLine(stdin)
-  while not res.isDigit() :
+  while not res.isDigit():
     echo ""
     write(stdout, msg)
     res = readLine(stdin)
   result = parseInt(res)
+
+proc isFloat(n: string): bool =
+  try:
+    var temp = parseFloat(n)
+    result = true
+  except ValueError:
+    result = false
+
+proc promptFloat*(msg: string = ">>> "): float =
+  ## Not negative
+  write(stdout, msg)
+  var res = readLine(stdin)
+  while not res.isFloat():
+    echo ""
+    write(stdout, msg)
+    res = readLine(stdin)
+  result = parseFloat(res)
 
 when isMainModule:
   echo "Testing testPromptString"
@@ -31,3 +48,7 @@ when isMainModule:
   echo "Testing testPromptInt"
   var testPromptInt = promptInt()
   echo testPromptInt
+
+  echo "Testing testPromptFloat"
+  var testPromptFloat = promptFloat()
+  echo testPromptFloat
