@@ -13,17 +13,16 @@ where
     rate_from is the current exchange rate in euros.
 
 Example Output
-​   
+ 
 How many euros are you exchanging? 81
 What is the exchange rate? 137.51
-​   
+   
 81 euros at an exchange rate of 137.51 is   
 111.38 U.S. dollars.
 
 Constraints
 
     Ensure that fractions of a cent are rounded up to the next penny.
-
     Use a single output statement.
 
 For currency rate see:
