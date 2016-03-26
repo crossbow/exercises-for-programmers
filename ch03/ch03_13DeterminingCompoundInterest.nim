@@ -39,6 +39,14 @@ import math
 import strfmt
 import ch03_utils as utils
 
+## Functions
+proc compoundInterest(principal, rate: float, years, times: int): float =
+  var r = rate / 100.0
+  var n = times.toFloat()
+  var t = years.toFloat()
+  var nt = n * t
+  result = principal * pow((1.0 + (r/n)), nt)
+
 ## Input
 var principal = 0.0
 while principal <= 0.0:
@@ -50,11 +58,7 @@ var years = promptInt("What is the number of years? ")
 var times = promptInt("What is the number of times the interest is compounded per year? ")
 
 ## Processing
-var r = rate / 100.0
-var n = times.toFloat()
-var t = years.toFloat()
-var nt = n * t
-var res = principal * pow((1.0 + (r/n)), nt)
+let res = compoundInterest(principal, rate, years, times)
 
 ## Output
 printfmt("\n€{:.2f} invested at {:.2f}% for {:d} years compounded {:d} times per year is €{:.2f}\n\n", principal, rate, years, times, res)
