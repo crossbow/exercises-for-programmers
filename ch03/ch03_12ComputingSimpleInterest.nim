@@ -31,7 +31,9 @@ import ch03_utils as utils
 
 ## Input
 var principal = promptFloat("Enter the principal: ")
-var rate = promptFloat("Enter the rate of interest: ")
+var rate = 0.0
+while rate < 1.0:
+    rate = promptFloat("Enter the rate of interest: ")
 var years = promptInt("Enter the number of years: ")
 
 ## Processing
