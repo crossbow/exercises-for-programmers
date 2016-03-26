@@ -30,7 +30,9 @@ import strfmt
 import ch03_utils as utils
 
 ## Input
-var principal = promptFloat("Enter the principal: ")
+var principal = 0.0
+while principal <= 0.0:
+    principal = promptFloat("Enter the principal: ")
 var rate = 0.0
 while rate < 1.0:
     rate = promptFloat("Enter the rate of interest: ")
