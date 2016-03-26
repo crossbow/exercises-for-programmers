@@ -32,6 +32,7 @@ Constraints
     display the program results.
 ]##
 
+import strfmt
 import strutils
 import ch04_utils as utils
 
@@ -51,10 +52,9 @@ if state == "WI":
   var subTotal = orderAmount
   var tax = subTotal * TAX
   total = subTotal + tax
-  response = "\nThe total is €" & $total
-  response = "\nThe tax is €" & $tax & response
-  response = "\nThe subtotal is €" & $subTotal & response
+  response = "\nThe total is €" & total.format(".2f")
+  response = "\nThe tax is €" & tax.format(".2f") & response
+  response = "\nThe subtotal is €" & subTotal.format(".2f") & response
 
 ## Output
 echo response
-
