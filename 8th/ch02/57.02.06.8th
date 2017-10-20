@@ -1,0 +1,56 @@
+\ 57.02.06
+\ Retirement Calculator
+
+needs date/utils
+
+: prompt.accept \ s -- s
+  dup
+  >r      \ Save prompt string on r-stack
+  . 
+  72 null con:accept
+  
+  \ Is a number ?
+  >n
+  null? if 
+    " *** Warning: Numeric input required" . cr
+    drop  \ Get rid of null
+    r@    \ Recall prompt string 
+    recurse 
+  then
+  
+  \ Is a positive number ?
+  dup
+  n:sgn
+  -1 n:= if
+    " *** Warning: Positive number required" . cr
+    drop  \ Get rid of negative number
+    r@    \ Recall prompt string 
+    recurse 
+  then
+
+  rdrop   \ Clean r-stack from prompt string
+;
+
+: computation \ age retirement.age -- retirement.year current.year years.left
+  swap n:-            \ years.left
+  \ Get current year
+  d:new d:>ymd 2drop  \ years.left current.year
+  2dup  \ years.left current.year years.left current.year
+  n:+   \ years.left current.year retirement.year
+  swap  \ years.left retirement.year current.year
+  rot   \ retirement.year current.year years.left
+;
+
+: app:main
+  \ Get input 
+  "What is your current age? " prompt.accept cr
+  "At what age would you like to retire? " prompt.accept cr
+  
+  computation
+
+  \ Display result
+  "You have " . . " years left until you can retire." . cr
+  "It's " . . ", so you can retire in " . . "." . cr
+  cr
+  bye
+;

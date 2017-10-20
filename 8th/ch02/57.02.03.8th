@@ -1,0 +1,22 @@
+\ 57.02.03
+\ Printing Quotes
+
+: prompt.accept \ s -- s
+  . 
+  72 null con:accept
+;
+
+: display.quote \ quote who --
+  .                 \ who
+  " says: " .
+  "\"" .  . "\"" .  \ quote 
+  cr
+;  
+
+\ Get input
+"What is the quote? " prompt.accept cr
+"Who said it? " prompt.accept cr
+
+display.quote 
+cr
+bye

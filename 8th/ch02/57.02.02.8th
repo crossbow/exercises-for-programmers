@@ -1,0 +1,31 @@
+\ 57.02.02
+\ Counting the Number of Characters
+
+: compute.input.length \ s -- s n
+  s:len
+;
+
+: get.string \ -- s
+  "What is the input string? " . 
+  72 null con:accept
+  compute.input.length
+  not if 
+    "*** Warning: Input required" . cr 
+    recurse 
+  then
+;
+
+: display.result \ s n --
+  swap . 
+  " has " . 
+  . 
+  " characters." .
+;
+
+\ Get input
+get.string cr
+
+compute.input.length
+display.result
+cr
+bye

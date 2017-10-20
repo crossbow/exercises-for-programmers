@@ -1,0 +1,27 @@
+\ 57.02.04
+\ Mad Lib
+
+: prompt.accept \ s -- s
+  . 
+  72 null con:accept
+;
+
+: display.result \ noun verb adjective adverb --
+  "Do you " .
+  rot .          \ verb
+  " your " .     
+  swap .         \ adjective
+  space swap .   \ noun
+  space  .       \ adverb
+  "? That's hilarious!" .
+;
+
+\ Get input
+"Enter a noun: " prompt.accept cr
+"Enter a verb: " prompt.accept cr
+"Enter an adjective: " prompt.accept cr
+"Enter an adverb: " prompt.accept cr
+
+display.result
+cr
+bye
