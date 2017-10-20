@@ -1,0 +1,19 @@
+\ 57.02.01
+\ Saying Hello
+
+: get.name \ -- s
+  "What is your name? " . 
+  72 null con:accept
+;
+
+: greeting \ s --
+  "Hello, " swap s:+
+  ", nice to meet you!" s:+
+;
+
+\ Get input
+get.name cr
+
+greeting . 
+cr
+bye
